@@ -2,6 +2,11 @@ class player {
   private _id: number;
   private _lPosition: Array<[number, number]>;
   private _coinPosition: [number, number];
+
+  constructor(lPosition: Array<[number, number]>, coinPosition: [number, number]) {
+    this._lPosition = lPosition;
+    this._coinPosition = coinPosition;
+  }
   
   get id(): number{
     return this._id;
@@ -15,11 +20,13 @@ class player {
     return this._coinPosition;
   }
 
-  set lPosition(lPosition: Array<[number, number]>) {
-    this._lPosition = lPosition;
+  isMoveValid(lPosition:Array<[number, number]>): boolean {
+
+    return false;
   }
 
-  set coinPosition(coinPosition: [number, number]) {
-    this._coinPosition = coinPosition;
+  makeMove(lPosition:Array<[number, number]>, coinPosition?: [number, number]) {
+    this._lPosition = lPosition;
+    if (coinPosition) this._coinPosition = coinPosition;
   }
 }
